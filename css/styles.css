@@ -68,9 +68,11 @@ div.social-block > a > img:hover {
  min-height : initial !important;
 }
 
-div.thumbnail {
- min-height: 368px;
+.thumbnail > .caption > h3 {
+ font-size: 15px;
+ font-weight: lighter;
 }
+
 
 div.product-images {
  padding: 40px 55px 42px;
