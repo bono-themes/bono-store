@@ -7,6 +7,18 @@ body {
  font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
 }
 
+/* Carousel configuration */
+.carousel-inner > div.item > img, 
+.carousel-inner > .item {
+ height: 100%;
+}
+
+.carousel-indicators li {
+ margin-right: 3px !important;
+}
+/* Carousel configuration */
+
+
 input[name='query'] {
  width: 197px !important;
  margin-right: 4px !important;
