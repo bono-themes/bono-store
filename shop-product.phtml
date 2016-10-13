@@ -26,16 +26,24 @@
 		
 		<div class="clearfix"></div>
 		
+        <?php if ($product->isAvailable()): ?>
 		<div class="col-lg-3">
 			<br />
 			
-			<div class="input-group input-group-lg">
+            <div class="input-group input-group-lg">
 				<input class="form-control" type="number" min="1" max="<?php echo $product->getInStock(); ?>" value="1" data-basket-product-id="<?php echo $product->getId(); ?>" data-basket-input="qty" />
 				<span class="input-group-addon" id="sizing-addon1">
 					<a class="btn btn-primary btn-lg" data-basket-button="add" data-basket-product-id="<?php echo $product->getId(); ?>" data-toggle="modal" data-target="#added-success" href="#"><i class="glyphicon glyphicon-shopping-cart"></i> <?php $this->show('Add to cart'); ?></a>
 				</span>
 			</div>
 		</div>
+        <?php else: ?>
+        
+        <div class="text-center">
+            <h3 class="text-muted"><i class="glyphicon glyphicon-remove"></i> <?php $this->show('The product is out of stock'); ?></h3>
+        </div>
+        
+        <?php endif; ?>
 		
 		<div class="clearfix"></div>
 		
