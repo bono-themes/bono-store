@@ -1,5 +1,5 @@
   
-  <?php foreach($products as $product): ?>
+  <?php foreach ($products as $product): ?>
   <div class="col-sm-6 col-md-4">
 	<div class="thumbnail">
 	  <a href="<?php echo $product->getUrl(); ?>"><img src="<?php echo $product->getImageUrl('120x120'); ?>" alt="<?php echo $product->getTitle(); ?>" /></a>
@@ -13,7 +13,13 @@
 		<h3 class="text-muted"><strike><span data-basket-label="currency"><?php echo $basket->getCurrency(); ?></span><?php echo $product->getPrice(); ?></strike></h3>
 		
 		<?php endif; ?>
-		<p><a data-toggle="modal" data-target="#added-success" href="#" class="btn btn-primary" role="button" data-basket-product-id="<?php echo $product->getId(); ?>" data-basket-button="add"><i class="glyphicon glyphicon-shopping-cart"></i> <?php $this->show('Add to cart'); ?></a></p>
+		<p>
+            <?php if ($product->isAvailable()): ?>
+            <a data-toggle="modal" data-target="#added-success" href="#" class="btn btn-primary" role="button" data-basket-product-id="<?php echo $product->getId(); ?>" data-basket-button="add"><i class="glyphicon glyphicon-shopping-cart"></i> <?php $this->show('Add to cart'); ?></a>
+            <?php else: ?>
+            <a href="#" disabled="disabled" class="btn btn-primary disabled"><i class="glyphicon glyphicon-shopping-cart"></i> <?php $this->show('Add to cart'); ?></a>
+            <?php endif; ?>
+        </p>
 	  </div>
 	</div>
   </div>
