@@ -63,7 +63,7 @@
 					<div class="col-lg-9">
 						<select class="form-control" name="delivery" id="select">
 							<?php foreach ($deliveryTypes as $deliveryType): ?>
-							<option><?php $this->show($deliveryType); ?></option>
+							<option value="<?php echo $deliveryType->getId(); ?>"><?php echo $deliveryType->getName(); ?></option>
 							<?php endforeach; ?>
 						</select>
 					</div>
