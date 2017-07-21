@@ -37,7 +37,9 @@ use Menu\View\Dropdown;
 	</div>
    </nav>
    
+   <?php if ($page->isDefault()): ?>
    <?php $this->loadPartial('bs-carousel', array('class' => 'main', 'size' => '1600x356')); ?>
+   <?php endif; ?>
 	
  </header>
  
@@ -68,13 +70,13 @@ use Menu\View\Dropdown;
  <div class="container">
   <div class="row">
    <div class="col-lg-3 footer-links">
-    <h3><?php echo $menu->getCategoryNameByClass('nav'); ?></h3>
+    <h3><?php $this->show('Navigation'); ?></h3>
     <?php echo $menu->renderByClass('nav', null, new Dropdown()); ?>
    </div>
   
    <div class="col-lg-3 footer-links">
-	 <h3><?php echo $menu->getCategoryNameByClass('partners'); ?></h3>
-	 <?php echo $menu->renderByClass('partners', null, new Dropdown()); ?>
+    <h3><?php $this->show('Partners'); ?></h3>
+    <?php echo $menu->renderByClass('partners', null, new Dropdown()); ?>
    </div>
    
    <div class="col-lg-4 contact-box">
@@ -110,9 +112,3 @@ use Menu\View\Dropdown;
 </footer>
 
 <?php $this->loadPartial('end'); ?>
-
-<!--
-
-<? d($db); ?>
-
--->
